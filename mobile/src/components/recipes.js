@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> fff7fbc (Add files via upload)
 import { View, Text, Pressable, Image } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -11,6 +15,7 @@ import Loading from "./loading";
 import { useNavigation } from "@react-navigation/native";
 // import CachedImage from "../helpers/image";
 
+<<<<<<< HEAD
 const Recipes = ({ meals, categories, searchText }) => {
 
   const navigation = useNavigation();
@@ -38,6 +43,12 @@ const Recipes = ({ meals, categories, searchText }) => {
   // yedi searchText nai xaina vane simply use meals
   const mealsToDisplay = filteredMeals.length > 0 ? filteredMeals : meals;
 
+=======
+const Recipes = ({ meals, categories }) => {
+
+  const navigation = useNavigation();
+
+>>>>>>> fff7fbc (Add files via upload)
   return (
     <View className="mx-4 space-y-3">
       <Text
@@ -53,7 +64,11 @@ const Recipes = ({ meals, categories, searchText }) => {
           <Loading size='large' className='mt-20' />
         ) : (
           <MasonryList
+<<<<<<< HEAD
             data={mealsToDisplay}
+=======
+            data={meals}
+>>>>>>> fff7fbc (Add files via upload)
             keyExtractor={(item) => item.idMeal}
             numColumns={2}
             showsVerticalScrollIndicator={false}

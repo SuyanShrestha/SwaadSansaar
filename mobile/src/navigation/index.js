@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React from "react";
+>>>>>>> fff7fbc (Add files via upload)
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
+<<<<<<< HEAD
 import RecipeDetailScreen from "../screens/RecipeDetailScreen";
 import Login from "../screens/Login";
 import SignUp from "../screens/SignUp";
@@ -68,3 +73,23 @@ const AppNavigation = () => {
 };
 
 export default AppNavigation;
+=======
+import RecipeDetailScreen from "../screens/RecipeDetailScreen"
+
+const Stack = createNativeStackNavigator();
+
+const AppNavigation = () => {
+    return(
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Welcome" component={WelcomeScreen} />
+                <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
+
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
+
+export default AppNavigation;
+>>>>>>> fff7fbc (Add files via upload)
