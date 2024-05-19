@@ -18,9 +18,15 @@
     "expo": "^51.0.2",
     "expo-status-bar": "~1.12.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "firebase": "^10.12.0",
 =======
 >>>>>>> fff7fbc (Add files via upload)
+=======
+=======
+    "firebase": "^10.12.0",
+>>>>>>> 9847b1e (Added firebase authentication  basic functionality)
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
     "nativewind": "^2.0.11",
     "pod-install": "^0.2.2",
     "react": "18.2.0",

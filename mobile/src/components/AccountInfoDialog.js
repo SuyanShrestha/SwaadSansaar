@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import {
   View,
   Text,
@@ -7,12 +8,16 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+=======
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
 import { XMarkIcon } from "react-native-heroicons/solid";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
+<<<<<<< HEAD
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
 
 const AccountInfoDialog = ({ setShowAccountInfo }) => {
@@ -22,10 +27,17 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
   const emailVerified = FIREBASE_AUTH.currentUser?.emailVerified;
   const creationTime = FIREBASE_AUTH.currentUser?.metadata.creationTime;
   const lastSignInTime = FIREBASE_AUTH.currentUser?.metadata.lastSignInTime;
+=======
+
+const AccountInfoDialog = ({ setShowAccountInfo }) => {
+    const fullName = FIREBASE_AUTH.currentUser?.displayName;
+    const email = FIREBASE_AUTH.currentUser?.email;
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
 
   return (
     <View style={styles.container}>
       <View style={styles.dialogBox}>
+<<<<<<< HEAD
         {/* avatar pic */}
         <Image
           source={require("../../assets/images/avatar2.png")}
@@ -74,6 +86,17 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
           <Text style={styles.signout_txt}>Sign Out</Text>
           <ArrowLeftIcon size={24} color="#fafafa" />
         </TouchableOpacity>
+=======
+        <TouchableOpacity onPress={() => setShowAccountInfo(false)}>
+          <XMarkIcon size={hp(10)} color={"blue"} />
+        </TouchableOpacity>
+
+        <Text style={styles.title}>Account Information</Text>
+        <Text style={styles.info}>Name: {fullName}</Text>
+        <Text style={styles.info}>Email: {email}</Text>
+
+        <Button title="Sign Out" onPress={() => FIREBASE_AUTH.signOut()} />
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
       </View>
     </View>
   );
@@ -81,11 +104,16 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
 
 const styles = StyleSheet.create({
   container: {
+<<<<<<< HEAD
     position: "absolute",
+=======
+    position: "absolute", // Position the dialog box absolutely
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
+<<<<<<< HEAD
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(50,50,50,0.5)",
@@ -99,10 +127,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     display: "flex",
     gap: 10,
+=======
+    justifyContent: "center", // Center content vertically
+    alignItems: "center", // Center content horizontally
+    backgroundColor: "rgba(50,50,50,0.5)", // semi-transparent background
+  },
+  dialogBox: {
+    width: "80%", // 80% of the parent container's width
+    padding: 20, // Add some padding
+    backgroundColor: "#F59E0B", // bg-amber-500
+    borderRadius: 10, // Rounded corners
+    alignItems: "center", // Center content horizontally
+    justifyContent: "center", // Center content vertically
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
+<<<<<<< HEAD
     color: "#273238",
   },
   info: {
@@ -132,6 +174,13 @@ const styles = StyleSheet.create({
   signout_txt: {
     color: "#fafafa",
     fontSize: hp(1.75),
+=======
+    color: "#fff",
+  },
+  info: {
+    fontSize: 16,
+    color: "#fff",
+>>>>>>> 3603275 (Added firebase authentication  basic functionality)
   },
 });
 
