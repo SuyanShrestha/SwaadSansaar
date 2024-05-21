@@ -1,5 +1,8 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a83e15e (Search bar functionality)
 import {
   View,
   Text,
@@ -8,15 +11,19 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+<<<<<<< HEAD
 =======
 import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+>>>>>>> a83e15e (Search bar functionality)
 import { XMarkIcon } from "react-native-heroicons/solid";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
 
@@ -33,11 +40,25 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
     const fullName = FIREBASE_AUTH.currentUser?.displayName;
     const email = FIREBASE_AUTH.currentUser?.email;
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+import { ArrowLeftIcon } from "react-native-heroicons/outline";
+
+const AccountInfoDialog = ({ setShowAccountInfo }) => {
+  const fullName = FIREBASE_AUTH.currentUser?.displayName;
+  const email = FIREBASE_AUTH.currentUser?.email;
+  const phoneNumber = FIREBASE_AUTH.currentUser?.phoneNumber;
+  const emailVerified = FIREBASE_AUTH.currentUser?.emailVerified;
+  const creationTime = FIREBASE_AUTH.currentUser?.metadata.creationTime;
+  const lastSignInTime = FIREBASE_AUTH.currentUser?.metadata.lastSignInTime;
+>>>>>>> a83e15e (Search bar functionality)
 
   return (
     <View style={styles.container}>
       <View style={styles.dialogBox}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a83e15e (Search bar functionality)
         {/* avatar pic */}
         <Image
           source={require("../../assets/images/avatar2.png")}
@@ -50,6 +71,7 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
           onPress={() => setShowAccountInfo(false)}
         >
           <XMarkIcon size={hp(5)} color={"#273238"} />
+<<<<<<< HEAD
         </TouchableOpacity>
 
         {/* account info */}
@@ -89,14 +111,49 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
 =======
         <TouchableOpacity onPress={() => setShowAccountInfo(false)}>
           <XMarkIcon size={hp(10)} color={"blue"} />
+=======
+>>>>>>> a83e15e (Search bar functionality)
         </TouchableOpacity>
 
-        <Text style={styles.title}>Account Information</Text>
-        <Text style={styles.info}>Name: {fullName}</Text>
-        <Text style={styles.info}>Email: {email}</Text>
+        {/* account info */}
+        <Text style={styles.info}>
+          Name: <Text style={styles.details}>{fullName}</Text>
+        </Text>
+        <Text style={styles.info}>
+          Email: <Text style={styles.details}>{email}</Text>
+        </Text>
+        <Text style={styles.info}>
+          Phone: <Text style={styles.details}>{phoneNumber}</Text>
+        </Text>
+        <Text style={styles.info}>
+          Email Verified:{" "}
+          <Text style={styles.details}>{emailVerified ? "Yes" : "No"}</Text>
+        </Text>
+        <Text style={styles.info}>
+          Member Since: <Text style={styles.details}>{creationTime}</Text>
+        </Text>
+        <Text style={styles.info}>
+          Last Active On: <Text style={styles.details}>{lastSignInTime}</Text>
+        </Text>
 
+<<<<<<< HEAD
         <Button title="Sign Out" onPress={() => FIREBASE_AUTH.signOut()} />
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+        {/* <Button
+          style={styles.signout}
+          title="Sign Out"
+          onPress={() => FIREBASE_AUTH.signOut()}
+        /> */}
+
+        <TouchableOpacity
+          style={styles.signout}
+          onPress={() => FIREBASE_AUTH.signOut()}
+        >
+          <Text style={styles.signout_txt}>Sign Out</Text>
+          <ArrowLeftIcon size={24} color="#fafafa" />
+        </TouchableOpacity>
+>>>>>>> a83e15e (Search bar functionality)
       </View>
     </View>
   );
@@ -105,14 +162,19 @@ const AccountInfoDialog = ({ setShowAccountInfo }) => {
 const styles = StyleSheet.create({
   container: {
 <<<<<<< HEAD
+<<<<<<< HEAD
     position: "absolute",
 =======
     position: "absolute", // Position the dialog box absolutely
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+    position: "absolute",
+>>>>>>> a83e15e (Search bar functionality)
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
     justifyContent: "center",
     alignItems: "center",
@@ -140,10 +202,26 @@ const styles = StyleSheet.create({
     alignItems: "center", // Center content horizontally
     justifyContent: "center", // Center content vertically
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(50,50,50,0.5)",
+  },
+  dialogBox: {
+    width: "80%",
+    padding: 20,
+    backgroundColor: "#89BD9E",
+    borderRadius: 20,
+    alignItems: "flex-start",
+    justifyContent: "center",
+    display: "flex",
+    gap: 10,
+>>>>>>> a83e15e (Search bar functionality)
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
+<<<<<<< HEAD
 <<<<<<< HEAD
     color: "#273238",
   },
@@ -181,6 +259,37 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#fff",
 >>>>>>> 3603275 (Added firebase authentication  basic functionality)
+=======
+    color: "#273238",
+  },
+  info: {
+    fontSize: hp(1.5),
+    color: "#273238",
+    fontWeight: "bold",
+  },
+  details: {
+    fontSize: hp(1.5),
+    color: "#273238",
+    fontWeight: "normal",
+  },
+  cross: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+  },
+  signout: {
+    backgroundColor: "#D9534F",
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 16,
+    display: "flex",
+    flexDirection: "row",
+    gap: 5,
+  },
+  signout_txt: {
+    color: "#fafafa",
+    fontSize: hp(1.75),
+>>>>>>> a83e15e (Search bar functionality)
   },
 });
 

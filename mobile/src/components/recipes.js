@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 =======
 import React, { useState } from "react";
 >>>>>>> fff7fbc (Add files via upload)
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> a83e15e (Search bar functionality)
 import { View, Text, Pressable, Image } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -15,6 +19,7 @@ import Loading from "./loading";
 import { useNavigation } from "@react-navigation/native";
 // import CachedImage from "../helpers/image";
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const Recipes = ({ meals, categories, searchText }) => {
 
@@ -49,6 +54,35 @@ const Recipes = ({ meals, categories }) => {
   const navigation = useNavigation();
 
 >>>>>>> fff7fbc (Add files via upload)
+=======
+const Recipes = ({ meals, categories, searchText }) => {
+
+  const navigation = useNavigation();
+
+  // console.log(meals)
+
+  // debouncing ko lagi
+  const [debouncedSearchText, setDebouncedSearchText] = useState(searchText);
+  
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedSearchText(searchText);
+    }, 500); 
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchText]);
+
+  // filter garera search garna lai
+  const filteredMeals = meals.filter(meal =>
+    meal.strMeal && meal.strMeal.toLowerCase().includes(debouncedSearchText.toLowerCase())
+  );
+
+  // yedi searchText nai xaina vane simply use meals
+  const mealsToDisplay = filteredMeals.length > 0 ? filteredMeals : meals;
+
+>>>>>>> a83e15e (Search bar functionality)
   return (
     <View className="mx-4 space-y-3">
       <Text
@@ -65,10 +99,14 @@ const Recipes = ({ meals, categories }) => {
         ) : (
           <MasonryList
 <<<<<<< HEAD
+<<<<<<< HEAD
             data={mealsToDisplay}
 =======
             data={meals}
 >>>>>>> fff7fbc (Add files via upload)
+=======
+            data={mealsToDisplay}
+>>>>>>> a83e15e (Search bar functionality)
             keyExtractor={(item) => item.idMeal}
             numColumns={2}
             showsVerticalScrollIndicator={false}
