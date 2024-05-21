@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Pressable, Image } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -11,9 +11,32 @@ import Loading from "./loading";
 import { useNavigation } from "@react-navigation/native";
 // import CachedImage from "../helpers/image";
 
-const Recipes = ({ meals, categories }) => {
+const Recipes = ({ meals, categories, searchText }) => {
 
   const navigation = useNavigation();
+
+  // console.log(meals)
+
+  // debouncing ko lagi
+  const [debouncedSearchText, setDebouncedSearchText] = useState(searchText);
+  
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedSearchText(searchText);
+    }, 500); 
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchText]);
+
+  // filter garera search garna lai
+  const filteredMeals = meals.filter(meal =>
+    meal.strMeal && meal.strMeal.toLowerCase().includes(debouncedSearchText.toLowerCase())
+  );
+
+  // yedi searchText nai xaina vane simply use meals
+  const mealsToDisplay = filteredMeals.length > 0 ? filteredMeals : meals;
 
   return (
     <View className="mx-4 space-y-3">
@@ -30,7 +53,7 @@ const Recipes = ({ meals, categories }) => {
           <Loading size='large' className='mt-20' />
         ) : (
           <MasonryList
-            data={meals}
+            data={mealsToDisplay}
             keyExtractor={(item) => item.idMeal}
             numColumns={2}
             showsVerticalScrollIndicator={false}
